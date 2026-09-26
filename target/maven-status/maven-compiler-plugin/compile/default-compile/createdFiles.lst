@@ -1,6 +1,0 @@
-mate\repository\BookRepository.class
-mate\service\BookService.class
-mate\service\BookServiceImpl.class
-mate\repository\BookRepositoryImpl.class
-mate\SrcApplication.class
-mate\model\Book.class
