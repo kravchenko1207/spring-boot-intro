@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="C:\Users\krauc\IdeaProjects\spring-boot-intro\src\main\java\mate\model\Book.java">
+</file>
+<file name="C:\Users\krauc\IdeaProjects\spring-boot-intro\src\main\java\mate\repository\BookRepository.java">
+</file>
+<file name="C:\Users\krauc\IdeaProjects\spring-boot-intro\src\main\java\mate\repository\BookRepositoryImpl.java">
+</file>
+<file name="C:\Users\krauc\IdeaProjects\spring-boot-intro\src\main\java\mate\service\BookService.java">
+</file>
+<file name="C:\Users\krauc\IdeaProjects\spring-boot-intro\src\main\java\mate\service\BookServiceImpl.java">
+</file>
+<file name="C:\Users\krauc\IdeaProjects\spring-boot-intro\src\main\java\mate\SrcApplication.java">
+</file>
+<file name="C:\Users\krauc\IdeaProjects\spring-boot-intro\src\main\resources\application.properties">
+</file>
+<file name="C:\Users\krauc\IdeaProjects\spring-boot-intro\src\test\resources\application.properties">
+</file>
+</checkstyle>
