@@ -17,13 +17,17 @@ import lombok.Setter;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private Long id;
     @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
     private String author;
+    @Column(nullable = false, unique = true)
     private String isbn;
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private String coverImage;
 

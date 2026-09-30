@@ -1,5 +1,6 @@
 package mate;
 
+import java.math.BigDecimal;
 import mate.model.Book;
 import mate.service.BookService;
 import org.springframework.boot.CommandLineRunner;
@@ -20,8 +21,11 @@ public class Application {
             Book book = new Book();
             book.setAuthor("Stephen King");
             book.setTitle("The Shining");
+            book.setIsbn("123456789");
+            book.setPrice(BigDecimal.valueOf(100));
 
             bookService.save(book);
+            bookService.findAll().forEach(System.out::println);
         };
 
     }
