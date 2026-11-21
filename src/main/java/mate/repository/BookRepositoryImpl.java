@@ -1,12 +1,11 @@
 package mate.repository;
 
 import java.util.List;
-import mate.exception.EntityNotFoundException;
+import java.util.Optional;
 import mate.model.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,15 +45,12 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public Book findById(Long id) {
+    public Optional<Book> findById(Long id) {
         try (Session session = sessionFactory.openSession()) {
-            Query<Book> bookQuery = session.createQuery("FROM Book b WHERE b.id = :id", Book.class);
-            bookQuery.setParameter("id", id);
-            List<Book> bookList = bookQuery.getResultList();
-            if (bookList.isEmpty()) {
-                throw new EntityNotFoundException("Book with id " + id + " not found");
-            }
-            return bookList.get(0);
+            Book book = session.find(Book.class, id);
+            return Optional.ofNullable(book);
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Book with required id is not found: " + id, e);
         }
     }
 }

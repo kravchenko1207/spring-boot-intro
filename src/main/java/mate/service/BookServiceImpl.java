@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import mate.dto.BookDto;
 import mate.dto.CreateBookRequestDto;
 import mate.dto.mapper.BookMapper;
+import mate.exception.EntityNotFoundException;
+import mate.model.Book;
 import mate.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +26,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookDto getBookById(Long id) {
-        return bookMapper.toBookDto(bookRepository.findById(id));
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Book with id" + id + " not found"
+                ));
+        return bookMapper.toBookDto(book);
     }
 
     @Override
